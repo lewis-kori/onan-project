@@ -1,0 +1,25 @@
+{% extends "accounts/base.html" %}
+{% load static%}
+{%block body%}
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">account name</th>
+      <th scope="col">password</th>
+      <th scope="col">edit</th>
+      <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for account in accounts%}
+    <tr>
+      <th scope="row">{{account.name}}</th>
+      <td>{{account.password}}</td>
+      <td><a href="{% url 'accounts:update' pk=account.id %}"><button type="submit" class="btn btn-primary">Update</button></a></td>
+      <td><a href="{% url 'accounts:delete' account.id %}"><button type="submit" class="btn btn-danger">Delete</button></a></td>
+    </tr>
+ {%endfor%}
+  </tbody>
+</table>
+
+{%endblock%}

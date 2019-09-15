@@ -1,0 +1,19 @@
+{%extends 'accounts/base.html'%}
+
+{%block body%}
+<div class="container">
+<div class="col-lg-6 form-group form-group-top">
+    <form class="form-area " method='POST'>
+    {% csrf_token %}
+    <fieldset class="form-group">
+        <h2>Are you sure you want to delete post?"{{object.name}}"</h2>
+        
+    </fieldset>
+    <div class="form-group">
+        <button class="btn btn-outline-Danger" type="submit">yes, Delete</button>
+        <a class="btn btn-outline-secondary" href="{% url 'accounts:index'%}">Cancel</a>
+    </div>
+    </form>
+       </div> 
+</div>
+{%endblock%}
